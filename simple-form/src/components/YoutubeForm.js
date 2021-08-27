@@ -1,22 +1,51 @@
-import React from 'react'
+import React from "react";
+import { useFormik } from "formik";
 
 function YoutubeForm() {
-    return (
-        <div>
-            <form >
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" />
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      channel: "",
+    },
+  });
 
-                <label htmlFor="email">E-mail</label>
-                <input type="text" name="email" id="email" />
+  console.log("Form values", formik.values);
 
-                <label htmlFor="channel">Channel</label>
-                <input type="text" name="channel" id="channel" />
+  return (
+    <div>
+      <form>
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+        />
 
-                <button>Submit</button>
-            </form>
-        </div>
-    )
+        <label htmlFor="email">E-mail</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
+
+        <label htmlFor="channel">Channel</label>
+        <input
+          type="text"
+          name="channel"
+          id="channel"
+          onChange={formik.handleChange}
+          value={formik.values.channel}
+        />
+
+        <button>Submit</button>
+      </form>
+    </div>
+  );
 }
 
-export default YoutubeForm
+export default YoutubeForm;
