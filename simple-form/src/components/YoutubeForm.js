@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
 const initialValues = {
@@ -25,51 +25,27 @@ function YoutubeForm() {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <form onSubmit={formik.handleSubmit}>
+      <Form>
         <div className="form-control">
           <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            {...formik.getFieldProps("name")}
-          />
-
-          {formik.touched.name && formik.errors.name ? (
-            <div className="error">{formik.errors.name}</div>
-          ) : null}
+          <Field type="text" name="name" id="name" />
+          <ErrorMessage name="name" />
         </div>
 
         <div className="form-control">
           <label htmlFor="email">E-mail</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            {...formik.getFieldProps("email")}
-          />
-
-          {formik.touched.email && formik.errors.email ? (
-            <div className="error">{formik.errors.email}</div>
-          ) : null}
+          <Field type="text" name="email" id="email" />
+          <ErrorMessage name="email" />
         </div>
 
         <div className="form-control">
           <label htmlFor="channel">Channel</label>
-          <input
-            type="text"
-            name="channel"
-            id="channel"
-            {...formik.getFieldProps("channel")}
-          />
-
-          {formik.touched.channel && formik.errors.channel ? (
-            <div className="error">{formik.errors.channel}</div>
-          ) : null}
+          <Field type="text" name="channel" id="channel" />
+          <ErrorMessage name="channel" />
         </div>
 
         <button type="submit">Submit</button>
-      </form>
+      </Form>
     </Formik>
   );
 }
