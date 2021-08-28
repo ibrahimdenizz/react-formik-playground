@@ -1,11 +1,14 @@
 import "./App.css";
-import EnrollmentForm from "./components/EnrollmentForm";
+import { theme, ThemeProvider } from "@chakra-ui/react";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
-    <div className="App">
-      <EnrollmentForm />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <LoginForm />
+      </div>
+    </ThemeProvider>
   );
 }
 

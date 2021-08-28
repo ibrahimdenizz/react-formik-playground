@@ -5,6 +5,7 @@ import CheckboxGroup from "./CheckboxGroup";
 import Select from "./Select";
 import Textarea from "./Textarea";
 import DatePicker from "./DatePicker";
+import ChakraInput from "./ChakraInput";
 
 function FormikControl({ control, ...rest }) {
   switch (control) {
@@ -20,6 +21,8 @@ function FormikControl({ control, ...rest }) {
       return <CheckboxGroup {...rest} />;
     case "date":
       return <DatePicker {...rest} />;
+    case "chakrainput":
+      return <ChakraInput {...rest} />;
     default:
       return null;
   }
